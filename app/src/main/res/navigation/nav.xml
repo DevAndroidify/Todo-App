@@ -1,0 +1,45 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/main">
+    <fragment
+        android:id="@+id/adddata"
+        android:name="com.example.todolist.adddata"
+        android:label="fragment_adddata"
+        tools:layout="@layout/fragment_adddata" >
+        <action
+            android:id="@+id/action_adddata_to_main"
+            app:destination="@id/main"
+            app:popUpTo="@id/main"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <!-- Other fragments -->
+    <fragment
+        android:id="@+id/main"
+        android:name="com.example.todolist.main"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_main_to_adddata"
+            app:destination="@id/adddata"
+            app:popUpTo="@id/main"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_main_to_updatedata"
+            app:destination="@id/updatedata" />
+        <!-- Other actions -->
+    </fragment>
+    <fragment
+        android:id="@+id/updatedata"
+        android:name="com.example.todolist.updatedata"
+        android:label="fragment_updatedata"
+        tools:layout="@layout/fragment_updatedata" >
+
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="2" />
+    </fragment>
+
+</navigation>
